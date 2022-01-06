@@ -105,14 +105,18 @@ img {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
 }
 .article {
   padding: 2rem;
-  border: 2px solid #fa5c5c81;
+  border: 2px solid #fa5c5c2f;
   border-radius: 1rem;
 }
 .article-img {
-  width: 70%;
+  width: 90%;
+}
+.article-title {
+  margin: 1rem 0 2rem 0;
 }
 .article-info {
   margin: 1rem 0;

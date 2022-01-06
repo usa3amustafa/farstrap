@@ -24,7 +24,7 @@ a {
   cursor: pointer;
 }
 nav {
-  background-color: #000;
+  background-color: #212529;
   padding: 2rem 0;
   color: #fefefe;
 }
@@ -59,7 +59,7 @@ input {
 .dropdown {
   width: 11rem;
   padding: 1rem;
-  background-color: #000;
+  background-color: #212529;
 }
 .dropdown-link {
   display: flex;
@@ -89,4 +89,88 @@ input {
 
 .show {
   display: inline-block;
+}
+
+.main {
+  background-color: #f8f9fa;
+}
+
+img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+.grid {
+  padding: 4rem 0;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.article {
+  padding: 2rem;
+  border: 2px solid #fa5c5c81;
+  border-radius: 1rem;
+}
+.article-img {
+  width: 70%;
+}
+.article-info {
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  color: #f72b2b;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  display: inline-block;
+  border: 1px solid #f37676;
+}
+.pri-btn {
+  background-color: #fa5c5c;
+  color: #fefefe;
+}
+
+.btn:hover {
+  background-color: #fa5c5c;
+  color: #fff;
+}
+.pri-btn:hover {
+  background-color: #f72b2b;
+  color: #fff;
+}
+.article-title {
+  text-transform: uppercase;
+}
+.contact-info,
+.opening-hours-info {
+  list-style: disc;
+}
+footer {
+  background-color: #343a40;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr 2fr;
+  font-size: 0.825rem;
+  grid-gap: 2rem;
+  color: #fefefe;
+  padding: 2rem 0;
+}
+.footer-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+}
+.social {
+  font-size: 2rem;
+  color: #f37676;
 }

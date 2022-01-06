@@ -182,3 +182,53 @@ footer {
 .footer li {
   margin-bottom: 0.5rem;
 }
+
+.item {
+  padding: 4rem;
+}
+
+.item-img {
+  width: 50%;
+}
+
+.item-img img {
+  width: 100%;
+}
+
+.counter {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.btn-counter {
+  padding: 0.25em 1rem;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  border: 1px solid #f37676;
+  color: #f72b2b;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+  font-size: 1rem;
+  font-weight: 600;
+}
+/* .btn:hover {
+  background-color: #343a40;
+} */
+.btn-counter:active {
+  background-color: #6c757d;
+}
+
+.quantity {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.item-main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  align-items: start;
+}

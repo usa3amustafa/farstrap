@@ -1,9 +1,15 @@
+<?php 
+session_start();
+$connect = mysqli_connect("localhost", "root", "", "cart");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarStrap Furniture</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -18,15 +24,15 @@
       rel="stylesheet"
     />
     <script src="./app.js" defer></script>
+
     <link rel="stylesheet" href="style.css" />
-    <title>senator-5371</title>
   </head>
   <body>
-    <!-- nav start  -->
+  <!-- nav start  -->
 
     <nav>
       <div class="container nav">
-        <h1 class="logo"><a href="./index.html">FarStrap Furniture</a></h1>
+        <h1 class="logo"><a href="./index.php">FarStrap Furniture</a></h1>
         <ul class="navigation">
           <li>
             <a href="#" class="flex-link customize"
@@ -53,30 +59,36 @@
               >Collection
               <i class="fas fa-sort-down"></i>
             </a>
+
+
             <ul class="dropdown collection-dropdown">
+<?php
+				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
+				$result = mysqli_query($connect, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
               <li>
-                <a href="#" class="dropdown-link">Home-Line 6311 </a>
+                <a href="product.php?id=<?php echo $row['id']?>" class="dropdown-link"
+                  ><?php echo $row["name"]; ?>
+                </a>
               </li>
-              <li>
-                <a href="#" class="dropdown-link">Home-Line 6141 </a>
-              </li>
-              <li>
-                <a href="#" class="dropdown-link">Munin</a>
-              </li>
-              <li>
-                <a href="#" class="dropdown-link">Plus 5031</a>
-              </li>
-              <li>
-                <a href="#" class="dropdown-link">Scala 5412 </a>
-              </li>
-              <li>
-                <a href="#" class="dropdown-link">Senator 5371</a>
-              </li>
+              
+<?php
+					}
+				}
+			?>
             </ul>
+
+
           </li>
 
           <li>
-            <a href="#">Shopping Cart <i class="fas fa-shopping-cart"></i></a>
+            <a href="./shoppingcart.php"
+              >Shopping Cart <i class="fas fa-shopping-cart"></i
+            ></a>
           </li>
         </ul>
       </div>
@@ -84,23 +96,51 @@
 
     <!-- nav end  -->
 
-    <main class="item">
-      <div class="container item-main">
-        <div class="item-img">
-          <img src="./img/senator5371.jpeg" alt="" />
-        </div>
-        <div class="right-col">
-          <div class="quantity">
-            <button class="btn-counter btn-decrease">-</button>
-            <span class="counter">0</span>
-            <button class="btn-counter btn-increase">+</button>
+    <!-- main start  -->
+
+    <main>
+      <div class="container grid">
+        <?php
+				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
+				$result = mysqli_query($connect, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
+        <div class="article article-1">
+				<form method="post" action="shoppingcart.php?action=add&id=<?php echo $row["id"]; ?>">
+
+          <div class="article-img">
+            <img class="article-img-img" src="img/<?php echo $row["image"]; ?>" alt="" />
           </div>
-          <a href="#" class="btn pri-btn"
+          <h2 class="article-title"><?php echo $row["name"]; ?></h2>
+						<h3 class="article-price">$ <?php echo $row["price"]; ?></h3>
+
+            <input style="margin:0.5rem 0;" type="number" min = "1" name="quantity" value="1"  />
+
+						<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
+
+						<input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
+
+          <div  class="btns">
+            <button name="add_to_cart" type='submit' href="#" class="btn pri-btn"
             >Add To Cart <i class="fas fa-cart-plus"></i
-          ></a>
+            ></button>
+            <a href="product.php?id=<?php echo $row['id']?>" class="btn">More Info</a>
+          </div>
+        </form>
         </div>
+        <?php
+					}
+				}
+			?>
+      
+      
       </div>
     </main>
+
+    <!-- main end -->
 
     <footer>
       <div class="container footer">
